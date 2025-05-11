@@ -1,213 +1,64 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>माँ को मदर्स डे की शुभकामनाएं</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Kalam:wght@700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe6f2 100%);
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
-            max-width: 500px;
-            width: 100%;
-            overflow: hidden;
-            text-align: center;
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        .header {
-            background: linear-gradient(45deg, #e91e63, #ff5722);
-            padding: 20px;
-            color: white;
-        }
-        
-        h1 {
-            font-family: 'Kalam', cursive;
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-        
-        .image-container {
-            padding: 20px;
-        }
-        
-        .mother-son-img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        .wish-container {
-            padding: 0 20px 20px;
-        }
-        
-        .wish-text {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #e91e63;
-            margin-bottom: 20px;
-            font-family: 'Kalam', cursive;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .name-input {
-            margin: 20px 0;
-        }
-        
-        input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e91e63;
-            border-radius: 50px;
-            font-size: 1rem;
-            outline: none;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            background: linear-gradient(45deg, #e91e63, #ff5722);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
-            margin: 5px;
-            width: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
-        }
-        
-        .btn-whatsapp {
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-        
-        .btn-whatsapp:hover {
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            .wish-text { font-size: 1.4rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Mother's Day Wishes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adsterra Ad Script will be added below -->
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+    input, button { padding: 10px; font-size: 16px; margin: 10px; }
+  </style>
 </head>
 <body>
-    <div class="card">
-        <div class="header">
-            <h1>मदर्स डे की शुभकामनाएं</h1>
-        </div>
-        
-        <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="माँ और बेटा" class="mother-son-img">
-        </div>
-        
-        <div class="wish-container">
-            <div class="wish-text" id="wishMessage">माँ तुम्हें मदर्स डे की बहुत बहुत शुभकामनाएं!</div>
-            
-            <div class="name-input">
-                <input type="text" id="userName" placeholder="अपना नाम लिखें">
-            </div>
-            
-            <button class="btn btn-whatsapp" id="shareWhatsapp">WhatsApp पर भेजें</button>
-        </div>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const userName = document.getElementById('userName');
-            const shareBtn = document.getElementById('shareWhatsapp');
-            const wishMessage = document.getElementById('wishMessage');
-            
-            // Check URL for name parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            const fromName = urlParams.get('from');
-            
-            if (fromName) {
-                wishMessage.textContent = `${fromName} की ओर से आपकी माँ को मदर्स डे की शुभकामनाएं!`;
-                userName.value = fromName;
-            }
-            
-            // Share on WhatsApp
-            shareBtn.addEventListener('click', function() {
-                const name = userName.value.trim();
-                if (!name) {
-                    alert('कृपया अपना नाम लिखें');
-                    return;
-                }
-                
-                // Update message immediately when sharing
-                wishMessage.textContent = `${name} की ओर से आपकी माँ को मदर्स डे की शुभकामनाएं!`;
-                
-                const url = `${window.location.origin}${window.location.pathname}?from=${encodeURIComponent(name)}`;
-                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${name} की ओर से आपकी माँ को मदर्स डे की शुभकामनाएं!\n\n${url}`)}`;
-                
-                window.open(whatsappUrl, '_blank');
-            });
-            
-            // Auto update when name is entered (optional)
-            userName.addEventListener('input', function() {
-                const name = userName.value.trim();
-                if (name) {
-                    wishMessage.textContent = `${name} की ओर से आपकी माँ को मदर्स डे की शुभकामनाएं!`;
-                } else {
-                    wishMessage.textContent = "माँ तुम्हें मदर्स डे की बहुत बहुत शुभकामनाएं!";
-                }
-            });
-        });
-    </script>
-    https://mothers-day-brown-one.vercel.app/
+  <h1>Mother's Day Special</h1>
+
+  <div id="wish-section">
+    <p>Apna naam daalein aur apni maa ko wish karein:</p>
+    <input type="text" id="username" placeholder="Aapka Naam">
+    <button onclick="generateLink()">WhatsApp par share karein</button>
+    <div id="share-link" style="margin-top: 20px;"></div>
+  </div>
+
+  <div id="message-section" style="display:none;">
+    <h2 id="greeting-message"></h2>
+  </div>
+
+  <!-- Adsterra Ad Code (placeholder) -->
+  <div style="margin-top: 30px;">
+    <!-- Adsterra Banner Code Yahan Aayega -->
+    <ins class="adsbyadsterra"
+         data-publisher-id="YOUR_ADSTERRA_PUBLISHER_ID"></ins>
+  </div>
+
+  <script>
+    // Agar naam URL mein hai to greeting dikhao
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    if (name) {
+      document.getElementById('wish-section').style.display = 'none';
+      document.getElementById('message-section').style.display = 'block';
+      document.getElementById('greeting-message').textContent =
+        `${name} ki taraf se Mother's Day ki hardik shubhkamnayein!`;
+    }
+
+    function generateLink() {
+      const username = document.getElementById('username').value.trim();
+      if (!username) {
+        alert("Kripya apna naam daalein");
+        return;
+      }
+
+      const currentUrl = window.location.href.split('?')[0];
+      const shareUrl = `${currentUrl}?name=${encodeURIComponent(username)}`;
+      const whatsappLink = `https://wa.me/?text=${encodeURIComponent(
+        `Maa ke liye ek khaas shubhkamna: ${shareUrl}`
+      )}`;
+
+      document.getElementById('share-link').innerHTML =
+        `<a href="${whatsappLink}" target="_blank">Ab WhatsApp par bhejein</a>`;
+    }
+  </script>
 </body>
 </html>
-
-<script type="text/javascript">
-	atOptions = {
-		'key' : '8129b96f161607b3edec2d4ad1a8482f',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/8129b96f161607b3edec2d4ad1a8482f/invoke.js"></script>
